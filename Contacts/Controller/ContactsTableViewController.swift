@@ -133,10 +133,11 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as? ContactTableViewCell else {
                     return 
                 }
-                
                 let person = fetchedResultsController.object(at: indexPath) as! Person
                 cell.personInfo =  person
+                
             }
+            tableView.reloadData()
         case .move:
             if let indexPath = indexPath {
                 tableView.deleteRows(at: [indexPath], with: .automatic)
